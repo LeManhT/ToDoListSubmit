@@ -64,10 +64,10 @@ if (!stringLocal) {
     init = JSON.parse(stringLocal)
 }
 
-
 function FormListToDo() {
     const ref = useRef();
     const refSelect = useRef();
+    const [count, setCount] = useState(1000);
 
     //Table
     const [form] = Form.useForm();
@@ -89,6 +89,7 @@ function FormListToDo() {
     const isEditing = (record) => record.key === editingKey;
 
     const edit = (record) => {
+        console.log(91, record);
         form.setFieldsValue({
             Task: '',
             Status: '',
@@ -106,7 +107,6 @@ function FormListToDo() {
             const row = await form.validateFields();
             const newData = [...data];
             const index = newData.findIndex((item) => key === item.key);
-
             if (index > -1) {
                 const item = newData[index];
                 newData.splice(index, 1, { ...item, ...row });
@@ -116,6 +116,7 @@ function FormListToDo() {
             } else {
                 newData.push(row);
                 setData(newData);
+                console.log(119, newData);
                 setEditingKey('');
             }
         } catch (errInfo) {
@@ -192,13 +193,15 @@ function FormListToDo() {
         let task = ref.current.value;
         let select = refSelect.current.value;
         const newData = [...data];
+        console.log(newData, 19);
         if (!task || !select) {
             alert('You must fill information in to input !')
         } else {
-            newData.push({ Task: task, Status: select });
+            newData.push({ key: newData[newData.length - 1].key * 1 + 1, Task: task, Status: select });
             setData(newData);
             setEditingKey('');
             setIsModalOpen(false);
+            ref.current.value = '';
             window.localStorage.setItem('data', JSON.stringify(newData))
         }
     }
@@ -206,26 +209,25 @@ function FormListToDo() {
 
     const deleteData = async (key) => {
         try {
-            const row = await form.validateFields();
-            const newData = [...data];
-            const index = newData.findIndex((item) => key === item.key);
-
-            if (index > -1) {
-                newData.splice(index, 1);
-                window.localStorage.setItem('data', JSON.stringify(newData))
-                setData(newData);
-                setEditingKey('');
-            } else {
-                newData.push(row);
-                setData(newData);
-                setEditingKey('');
+            if (window.confirm('Are you sure to delete?')) {
+                const row = await form.validateFields();
+                const newData = [...data];
+                const index = newData.findIndex((item) => key === item.key);
+                if (index > -1) {
+                    newData.splice(index, 1);
+                    window.localStorage.setItem('data', JSON.stringify(newData))
+                    setData(newData);
+                    setEditingKey('');
+                } else {
+                    newData.push(row);
+                    setData(newData);
+                    setEditingKey('');
+                }
             }
         } catch (errInfo) {
-            alert('Validate Failed:', errInfo);
+            console.log('Validate Failed:', errInfo);
         }
     };
-
-
 
 
 

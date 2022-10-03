@@ -1,0 +1,32 @@
+1. props là đối số của function , dùng để truyền data từ component cha sang component con 
+    Khi dùng props ta không được phép thay đổi chúng
+
+state là 1 biến được dùng riêng trong 1 component. Khi state thay đổi thì component sẽ được render lại theo data mới 
+và component chỉ render lại khi ta thay đổi state qua hàm setState
+    Syntax : const [state,setState] = useState(initialValue)
+
+2. 
+useEffect là 1 hook dùng để quản lí vòng đời của 1 component trong function component
+
+useEffect : sẽ thực thi chức năng của 3 lifecycle
+    Nó sẽ thực thi lần đầu khi load trang 
+
+    Khi denpendency thay đổi thì effect được chạy lại
+
+    thực hiện dọn dẹp khi unmounting
+
+Syntax : 
+useEffect(function side effect, dependencyArray)
+
+useEffect có return tức là thực thi khi component gỡ đi (unmounting)
+
+
+3.
+Reference type là kiểu phức tạp hơn kiểu tham trị và được dùng cho các kiểu dữ liệu phức tạp: Object, Array, Function.
+Khi gán cho nó một giá trị thì nó không lưu lại giá trị này mà nó lưu lại địa chỉ của ô nhớ lưu giá trị này.
+
+    Cách để copy array, object mà ko làm thay đổi object,array gốc : Dùng toán tử ...
+     hoặc dùng JSON
+    Ví dụ :
+    JSON.stringify(arr) 
+    JSON.parse(JSON.stringify(arr) )
