@@ -1,0 +1,32 @@
+[
+    {
+        "id": 0,
+        "task": "Give dog a bath",
+        "complete": false,
+        "status": "to do"
+    },
+    {
+        "id": 1,
+        "task": "Do laundry",
+        "complete": false,
+        "status": "to do"
+    },
+    {
+        "id": 2,
+        "task": "Vacuum floor",
+        "complete": false,
+        "status": "to do"
+    },
+    {
+        "id": 3,
+        "task": "Feed cat",
+        "complete": false,
+        "status": "to do"
+    },
+    {
+        "id": 4,
+        "task": "Change light bulbs",
+        "complete": false,
+        "status": "to do"
+    }
+]

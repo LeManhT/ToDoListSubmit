@@ -1,38 +1,475 @@
-.App {
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+
+/* Css */
+
+body,
+html {
+  background: linear-gradient(45deg, red, blue);
+  height: -1px !important;
+}
+
+.wrapper {
+  width: 100%;
+}
+
+.align {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 80px 0;
+}
+
+/* To-Do List App */
+.app {
+  width: 70%;
+  min-height: 200px;
+  margin: 0 auto;
+  border-radius: 22px;
+  background: #fff;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+  letter-spacing: -1px;
+  box-shadow: 0 20px 80px rgba(0, 0, 0, .3);
+  -webkit-backface-visibility: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.info {
+  position: relative;
+  height: 200px;
+  width: auto;
+
+  border-top-left-radius: 22px;
+  border-top-right-radius: 22px;
+  background: linear-gradient(135deg, rgba(158, 15, 184, 0.70) -10%, rgba(5, 232, 255, 0.8) 180%),
+    url('https://static.vecteezy.com/system/resources/previews/000/101/253/non_2x/vector-free-abstract-background-1.jpg');
+  background-size: cover;
+  padding-bottom: 20px;
+
+}
+
+.date {
+  position: relative;
+  width: 100%;
+  padding: 11px 0 5px 0;
+}
+
+
+#day,
+#month {
+  text-align: center;
+  font-size: 26px;
+  color: #fff;
+}
+
+#month {
+  font-size: 16px;
+}
+
+#today {
+  font-weight: bold;
+}
+
+.clear {
+  clear: both;
+}
+
+.info-bottom {
+  position: relative;
+  height: 50px;
+  width: 85%;
+  margin: -33px auto 0 auto;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.middle {
+  position: absolute;
+  width: 140px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+}
+
+#count,
+#tasks,
+#count_done,
+#tasks_done,
+#remaining_done,
+#remaining_tasks {
+  margin-top: 11px;
+  font-size: 19px;
+  color: #fff;
+  font-weight: bold;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#tasks,
+#tasks_done,
+#remaining_tasks {
+  font-weight: normal;
+  font-size: 18px;
+  margin-top: -2px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#today2 {
+  padding: 10px 0;
+  background-color: aqua;
+  text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.ul-task {
+  list-style: none;
+  padding: 0 40px;
+}
+
+.li-title {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 0;
+  border-bottom: 2px solid #ccc;
 }
 
-.App-link {
-  color: #61dafb;
+.item-title p {
+  margin-bottom: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.li-hidden {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px 0;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.li-hidden p {
+  margin: 0;
+}
+
+.bottom {
+  padding: 20px 0;
+  background-color: #61dafb;
+  border-radius: 0 0 22px 22px;
+  text-align: center;
+}
+
+.delete_button {
+  float: right;
+}
+
+.check_button {
+  float: left;
+}
+
+
+#add-new {
+  text-decoration: none;
+  background-color: #61dafb;
+  color: #fff;
+  border: none;
+  font-size: 18px;
+}
+
+#add-new:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.add-icon {
+  padding: 0 6px;
+}
+
+#copyright {
+  margin-top: 40px;
+  text-align: center;
+}
+
+#copyright a {
+  color: #fff;
+}
+
+
+#task-job {
+  width: 100%;
+  outline: none;
+  padding: 5px 10px;
+  background-color: skyblue;
+  border: none;
+}
+
+.modal-header {
+  background-color: #3A8BC4;
+}
+
+.modal-body {
+  padding: 30px 2rem;
+}
+
+.item {
+  width: 80%;
+}
+
+.item:hover {
+  background-color: #ccc;
+}
+
+.done-text {
+  margin-right: 4px;
+}
+
+@media screen and (min-width:739px) and(max-width:1023px) {
+  .app {
+    width: 625px;
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+
+/* Login */
+
+
+*,
+:after,
+:before {
+  box-sizing: border-box
+}
+
+.clearfix:after,
+.clearfix:before {
+  content: '';
+  display: table
+}
+
+.clearfix:after {
+  clear: both;
+  display: block
+}
+
+a {
+  color: inherit;
+  text-decoration: none
+}
+
+.container-login {
+  padding: 30px 0;
+}
+
+.login-wrap {
+  width: 100%;
+  margin: auto;
+  max-width: 60%;
+  min-height: 670px;
+  position: relative;
+  background: url(https://raw.githubusercontent.com/khadkamhn/day-01-login-form/master/img/bg.jpg) no-repeat center;
+  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19);
+  box-shadow: 0 0 10px #000;
+}
+
+.login-html {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  padding: 90px 70px 50px 70px;
+  background: rgba(40, 57, 101, .9);
+}
+
+.login-html .sign-in-htm,
+.login-html .sign-up-htm {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+  transition: all .4s linear;
+}
+
+.login-html .sign-in,
+.login-html .sign-up,
+.login-form .group .check {
+  display: none;
+}
+
+.login-html .tab,
+.login-form .group .label,
+.login-form .group .button {
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.login-html .tab {
+  font-size: 22px;
+  margin-right: 15px;
+  padding-bottom: 5px;
+  margin: 0 15px 10px 0;
+  display: inline-block;
+  border-bottom: 2px solid transparent;
+}
+
+.login-html .sign-in:checked+.tab,
+.login-html .sign-up:checked+.tab {
+  color: #fff;
+  border-color: #1161ee;
+}
+
+.login-form {
+  min-height: 345px;
+  position: relative;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.login-form .group {
+  margin-bottom: 15px;
+}
+
+.login-form .group .label,
+.login-form .group .input,
+.login-form .group .button {
+  width: 100%;
+  color: #fff;
+  display: block;
+}
+
+.login-form .group .input,
+.login-form .group .button {
+  border: none;
+  padding: 15px 20px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, .1);
+}
+
+.login-form .group input[data-type="password"] {
+  text-security: circle;
+  -webkit-text-security: circle;
+}
+
+.login-form .group .label {
+  color: #aaa;
+  font-size: 12px;
+}
+
+.login-form .group .button {
+  background: #1161ee;
+}
+
+.login-form .group label .icon {
+  width: 15px;
+  height: 15px;
+  border-radius: 2px;
+  position: relative;
+  display: inline-block;
+  background: rgba(255, 255, 255, .1);
+}
+
+.login-form .group label .icon:before,
+.login-form .group label .icon:after {
+  content: '';
+  width: 10px;
+  height: 2px;
+  background: #fff;
+  position: absolute;
+  transition: all .2s ease-in-out 0s;
+}
+
+.login-form .group label .icon:before {
+  left: 3px;
+  width: 5px;
+  bottom: 6px;
+  transform: scale(0) rotate(0);
+}
+
+.login-form .group label .icon:after {
+  top: 6px;
+  right: 0;
+  transform: scale(0) rotate(0);
+}
+
+.login-form .group .check:checked+label {
+  color: #fff;
+}
+
+.login-form .group .check:checked+label .icon {
+  background: #1161ee;
+}
+
+.login-form .group .check:checked+label .icon:before {
+  transform: scale(1) rotate(45deg);
+}
+
+.login-form .group .check:checked+label .icon:after {
+  transform: scale(1) rotate(-45deg);
+}
+
+.login-html .sign-in:checked+.tab+.sign-up+.tab+.login-form .sign-in-htm {
+  transform: rotate(0);
+}
+
+.login-html .sign-up:checked+.tab+.login-form .sign-up-htm {
+  transform: rotate(0);
+}
+
+.hr {
+  height: 2px;
+  margin: 42px 0 20px 0;
+  background: rgba(255, 255, 255, .2);
+}
+
+.foot-lnk {
+  text-align: center;
+}
+
+.home-page {
+  display: none;
+  margin: auto;
+}
+
+.home-page p {
+  font-size: 45px;
+  color: chartreuse;
+
+}
+
+.result {
+  display: none;
+}
+
+.update {
+  display: none;
+}
+
+.delete {
+  display: none;
+}
+
+
+/* Check */
+.check {
+  width: 20px;
+  margin-right: 15px;
+}
+
+
+
+.add-input {
+  width: 100%;
+  outline: none;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
 }
