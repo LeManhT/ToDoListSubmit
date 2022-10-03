@@ -4,14 +4,14 @@ import data from '../data.json'
 import { Button, Modal } from 'antd';
 import { Form, Input, InputNumber, Popconfirm, Table, Typography } from 'antd';
 import { useRef } from 'react';
-
+import { useDispatch, useSelector } from 'react-redux'
+import { storeData } from '../redux/DataReducer';
 
 
 const dataRoot = data;
 const originData = [];
 
 for (let i = 0; i < dataRoot.length; i++) {
-    // console.log(dataRoot[i]);
     originData.push({
         key: dataRoot[i].id.toString(),
         Task: dataRoot[i].task.toString(),
@@ -67,8 +67,7 @@ if (!stringLocal) {
 function FormListToDo() {
     const ref = useRef();
     const refSelect = useRef();
-    const [count, setCount] = useState(1000);
-
+    const dispatch = useDispatch();
     //Table
     const [form] = Form.useForm();
     const [data, setData] = useState(init);
@@ -112,6 +111,8 @@ function FormListToDo() {
                 newData.splice(index, 1, { ...item, ...row });
                 window.localStorage.setItem('data', JSON.stringify(newData))
                 setData(newData);
+                let action = storeData([...newData])
+                dispatch(action);
                 setEditingKey('');
             } else {
                 newData.push(row);
@@ -193,7 +194,6 @@ function FormListToDo() {
         let task = ref.current.value;
         let select = refSelect.current.value;
         const newData = [...data];
-        console.log(newData, 19);
         if (!task || !select) {
             alert('You must fill information in to input !')
         } else {
@@ -202,7 +202,9 @@ function FormListToDo() {
             setEditingKey('');
             setIsModalOpen(false);
             ref.current.value = '';
-            window.localStorage.setItem('data', JSON.stringify(newData))
+            window.localStorage.setItem('data', JSON.stringify(newData));
+            let action = storeData([...newData])
+            dispatch(action);
         }
     }
 
@@ -218,6 +220,8 @@ function FormListToDo() {
                     window.localStorage.setItem('data', JSON.stringify(newData))
                     setData(newData);
                     setEditingKey('');
+                    let action = storeData([...newData])
+                    dispatch(action);
                 } else {
                     newData.push(row);
                     setData(newData);
@@ -230,6 +234,11 @@ function FormListToDo() {
     };
 
 
+
+
+    const dataRedux = useSelector(function (state) {
+        return state.data;
+    })
 
 
 

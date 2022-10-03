@@ -9,7 +9,6 @@ if (!string) {
 } else {
     init = JSON.parse(string);
 }
-
 const userSlice = createSlice({
     name: "user",
     initialState: init,

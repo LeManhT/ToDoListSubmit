@@ -8,4 +8,4 @@ function ToDoFooter() {
     )
 }
 
-export default ToDoFooter
+export default React.memo(ToDoFooter)
