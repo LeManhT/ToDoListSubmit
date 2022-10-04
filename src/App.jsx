@@ -1,10 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
 import 'antd/dist/antd.min.css';
-import Login from './component/Login'
+import Login from './component/Login/Login'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import ProtectedRouter from './component/ProtectedRouter';
-import Content from './component/Content';
+import ProtectedRouter from './component/PrivateRouter/ProtectedRouter';
+import Content from './component/Page/Content';
 
 
 function App() {

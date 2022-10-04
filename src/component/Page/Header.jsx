@@ -16,14 +16,16 @@ function Header() {
     const onSearch = (value) => console.log(value);
 
     return (
-        <div>
-            <Search
-                placeholder="input search text"
-                allowClear
-                enterButton="Search"
-                size="large"
-                onSearch={onSearch}
-            />
+        <div className="header">
+            <div className="header-left">
+                <Search
+                    placeholder="input search text"
+                    allowClear
+                    enterButton="Search"
+                    size="large"
+                    onSearch={onSearch}
+                />
+            </div>
         </div>
     )
 }

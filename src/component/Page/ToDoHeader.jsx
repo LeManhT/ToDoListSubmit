@@ -1,6 +1,4 @@
 import React from 'react'
-import { useEffect } from 'react';
-import { useState } from 'react';
 import { useSelector } from 'react-redux'
 function ToDoHeader() {
 
@@ -12,7 +10,6 @@ function ToDoHeader() {
     let done = 0;
     let remaining = 0;
 
-    let count = 0;
     for (let i = 0; i < initData.length; i++) {
         if (initData[i].Status !== 'done') {
             remaining++;
@@ -20,11 +17,6 @@ function ToDoHeader() {
             done++;
         }
     }
-
-    const data = useSelector((state) => {
-        return state.data
-    })
-
 
     return (
         <div>

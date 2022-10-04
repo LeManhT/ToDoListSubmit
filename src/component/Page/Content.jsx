@@ -8,7 +8,6 @@ import Header from './Header'
 function Content() {
     return (
         <div className='container'>
-            <Header></Header>
             <div className="wrapper">
                 <div className="align">
                     <div className="app">
@@ -17,7 +16,6 @@ function Content() {
                     </div>
                     <ToDoFooter></ToDoFooter>
                 </div>
-
             </div>
         </div>
     )

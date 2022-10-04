@@ -1,12 +1,13 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
-import data from '../data.json'
+import data from '../../data.json'
 import { Button, Modal } from 'antd';
 import { Form, Input, InputNumber, Popconfirm, Table, Typography } from 'antd';
 import { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { storeData } from '../redux/DataReducer';
-
+import { storeData } from '../../redux/DataReducer';
+import { AudioOutlined } from '@ant-design/icons';
+const { Search } = Input;
 
 const dataRoot = data;
 const originData = [];
@@ -68,6 +69,27 @@ function FormListToDo() {
     const ref = useRef();
     const refSelect = useRef();
     const dispatch = useDispatch();
+
+    //Search
+    const [dataSearch, setDataSearch] = useState([]);
+    const [isSearch, setIsSearch] = useState(false);
+    const onSearch = (value) => {
+        console.log(value)
+        let arrSearch = data.filter((data) => {
+            if (data.Task.includes(value)) {
+                return true;
+            }
+            setDataSearch(arrSearch)
+        })
+    };
+    const suffix = (
+        <AudioOutlined
+            style={{
+                fontSize: 16,
+                color: '#1890ff',
+            }}
+        />
+    );
     //Table
     const [form] = Form.useForm();
     const [data, setData] = useState(init);
@@ -234,17 +256,17 @@ function FormListToDo() {
     };
 
 
-
-
-    const dataRedux = useSelector(function (state) {
-        return state.data;
-    })
-
-
-
     return (
         <div>
-
+            <div className="header-left">
+                <Search
+                    placeholder="input search text"
+                    allowClear
+                    enterButton="Search"
+                    size="large"
+                    onSearch={onSearch}
+                />
+            </div>
             <ul className='ul-task'>
                 <Form form={form} component={false}>
                     <Table
