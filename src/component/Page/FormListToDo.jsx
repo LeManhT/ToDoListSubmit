@@ -219,7 +219,7 @@ function FormListToDo() {
         if (!task || !select) {
             alert('You must fill information in to input !')
         } else {
-            newData.push({ key: newData[newData.length - 1].key * 1 + 1, Task: task, Status: select });
+            newData.push({ key: newData.length ? newData[newData.length - 1].key * 1 + 1 : 0, Task: task, Status: select });
             setData(newData);
             setEditingKey('');
             setIsModalOpen(false);
