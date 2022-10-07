@@ -2,16 +2,16 @@ const { createSlice } = require("@reduxjs/toolkit");
 
 let string = window.localStorage.getItem("user-login");
 
-let init = {};
+let initUser = {};
 if (!string) {
-    init = {};
+    initUser = {};
     window.localStorage.setItem("user-login", JSON.stringify({}));
 } else {
-    init = JSON.parse(string);
+    initUser = JSON.parse(string);
 }
 const userSlice = createSlice({
     name: "user",
-    initialState: init,
+    initialState: initUser,
     reducers: {
         userLogin: function (state, action) {
             window.localStorage.setItem("user-login", JSON.stringify(action.payload));
@@ -22,3 +22,4 @@ const userSlice = createSlice({
 
 export const { userLogin } = userSlice.actions;
 export const userReducer = userSlice.reducer;
+export default userSlice

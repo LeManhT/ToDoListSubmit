@@ -1,6 +1,6 @@
 import React from 'react'
 import { Navigate, Outlet } from 'react-router-dom';
-import Login from '../Login/Login';
+import FormLogin from '../Login/FormLogin';
 
 
 const useAuth = () => {
@@ -13,7 +13,7 @@ function ProtectedRouter() {
     const isAuth = useAuth();
 
     return (
-        isAuth ? <Outlet></Outlet> : <Navigate to={<Login />}></Navigate>
+        isAuth ? <Outlet></Outlet> : <Navigate to={<FormLogin />}></Navigate>
     )
 }
 

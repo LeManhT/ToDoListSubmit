@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
-import data from '../../data.json'
+import data from '../../../data.json'
 import { Button, Modal } from 'antd';
 import { Form, Input, InputNumber, Popconfirm, Table, Typography } from 'antd';
 import { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { storeData } from '../../redux/DataReducer';
+import { storeData } from '../../../redux/DataReducer';
 import { AudioOutlined } from '@ant-design/icons';
 const { Search } = Input;
 
@@ -74,13 +74,13 @@ function FormListToDo() {
     const [dataSearch, setDataSearch] = useState([]);
     const [isSearch, setIsSearch] = useState(false);
     const onSearch = (value) => {
-        console.log(value)
         let arrSearch = data.filter((data) => {
             if (data.Task.includes(value)) {
                 return true;
             }
-            setDataSearch(arrSearch)
+            setIsSearch(true);
         })
+        setDataSearch(arrSearch);
     };
     const suffix = (
         <AudioOutlined
@@ -134,6 +134,7 @@ function FormListToDo() {
                 window.localStorage.setItem('data', JSON.stringify(newData))
                 setData(newData);
                 let action = storeData([...newData])
+                console.log(137,action);
                 dispatch(action);
                 setEditingKey('');
             } else {
@@ -258,9 +259,9 @@ function FormListToDo() {
 
     return (
         <div>
-            <div className="header-left">
+            <div className="search-input">
                 <Search
-                    placeholder="input search text"
+                    placeholder="Please type information you want to search !"
                     allowClear
                     enterButton="Search"
                     size="large"
@@ -276,7 +277,7 @@ function FormListToDo() {
                             },
                         }}
                         bordered
-                        dataSource={data}
+                        dataSource={!isSearch ? data : dataSearch}
                         columns={mergedColumns}
                         rowClassName="editable-row"
                         pagination={{

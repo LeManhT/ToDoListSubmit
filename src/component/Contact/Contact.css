@@ -1,0 +1,131 @@
+.contact-container {
+    padding-top: 50px;
+    background-color: #fff;
+}
+
+.contact-form {
+    display: flex;
+    align-items: center;
+}
+
+.contact-img img {
+    width: 100%;
+    height: 700px;
+    object-fit: fill;
+    border-top-right-radius: 20% 50%;
+    border-bottom-right-radius: 20% 50%;
+}
+
+.contact-left {
+    width: 50%;
+}
+
+.contact-right {
+    padding: 0 80px;
+    width: 50%;
+    animation: fadeInRight 1500ms ease-in-out 0.1s 1 backwards;
+}
+
+.input-name,
+.input-email,
+.input-message {
+    outline: none;
+    border: none;
+    padding: 10px;
+    display: block;
+    width: 100%;
+}
+
+.u-form-item {
+    padding: 20px 0;
+    width: 100%;
+}
+
+.u-border-2,
+.u-separator-2:after,
+.u-text.u-border-2,
+a.u-button-style.u-border-2 {
+    border-bottom: 2px solid #ccc;
+}
+
+.btn-submit {
+    padding: 8px 24px;
+    border: none;
+    background-color: #FF724A;
+    color: #fff;
+
+}
+
+.btn-submit:hover {
+    opacity: 0.8;
+    background-color: #ccc;
+}
+
+
+.input-form-submit {
+    text-align: center;
+}
+
+.contact-item-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 0;
+    animation: fadeInLeft 1500ms ease-in-out 0.1s 1 forwards;
+}
+
+.contact-item {
+    margin: 0 20px;
+    width: 20%;
+    text-align: center;
+    background-color: #FF724A;
+    color: #fff;
+    padding: 20px;
+    height: 180px;
+    border-radius: 10px;
+}
+
+.contact-item i {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.contact-item h3,
+h4 {
+    font-size: 20px;
+    color: #fff;
+}
+
+.copy-right {
+    text-align: center;
+}
+
+.icon-infor i {
+    padding: 0 10px;
+    font-size: 32px;
+}
+
+.contact-item-infor h3 {
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+@keyframes fadeInRight {
+    from {
+        transform: translateX(100%)
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        transform: translateX(-100%)
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
